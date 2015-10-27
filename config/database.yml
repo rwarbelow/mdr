@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: mdr_development
+
+test:
+  <<: *default
+  database: mdr_test
+
+production:
+  <<: *default
+  database: mdr_production
+  username: mdr
+  password: <%= ENV['MDR_DATABASE_PASSWORD'] %>
